@@ -1,0 +1,21 @@
+use adventureworks2008R2;
+
+CREATE PROCEDURE [dbo].[salesQuotav2]  @year smallint,@Quarter tinyint
+AS
+select * from FactSalesQuota
+where  Year= @year and CalendarQuarter=@Quarter
+
+CREATING THE NEW TABLE USING FULL OUTER JOIN
+create table yourtable5(
+productcategorykey int,
+EnglishProductSubCategoryName varchar (255),
+EnglishProductCategoryName varchar(255)
+);
+insert into yourtable5 (productcategorykey,EnglishProductSubCategoryName,EnglishProductCategoryName)
+select DimProductCategory.ProductCategoryKey,DimProductSubcategory.EnglishProductSubcategoryName , DimProductCategory.EnglishProductCategoryName from DimProductCategory full outer join DimProductSubCategory on(DimProductCategory.ProductCategoryKey = DimProductSubcategory.ProductCategoryKey) 
+
+
+ the database had been imported using  restore database option adventure works 2008R2  
+
+these is the sample of code used by me
+
